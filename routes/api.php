@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\MasterController;
 /*
 |--------------------------------------------------------------------------
 | API
@@ -16,8 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/ping', fn () => ['ok' => true]);
+Route::get('/ping', fn () => ['ok' => 'aaaaaaaaaaaaaaaaaaaaaaaa']);
 
-// TODO: POST /api/referrals/attach
-// TODO: GET  /api/referrals/my
-// TODO: GET  /api/referrals/earnings
+Route::post('/referrals/attach', [MasterController::class, 'attach']);
+Route::get('/referrals/my', [MasterController::class, 'myReferral']);
+Route::get('/referrals/earnings', [MasterController::class, 'earnings']);
